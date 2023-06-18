@@ -21,9 +21,6 @@ app.set('view engine','ejs');
 app.use(express.urlencoded({extended: true}))
 
 //req for pages
-app.get('/',(req,resp)=>{
-    resp.render('/index');
-});
 // add new blog
 app.post('/index',(req,resp)=>{
     const blog = new Blog(req.body);
@@ -101,6 +98,9 @@ app.delete('/blog/:id',(req,resp)=>{
     });
 });
 
+app.get('/',(req,resp)=>{
+    resp.redirect('index');
+});
 
 app.get('/home', (req, resp) => {
     resp.redirect('index');
