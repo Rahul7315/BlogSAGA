@@ -1,0 +1,49 @@
+<html>
+  <%- include('./partials/head.ejs')%>
+  <style>
+    .card-container {
+      border: 2px solid black;
+      margin-left: 10%;
+      margin-top: 2%;
+      background-color: azure;
+      position: relative;
+      margin-right: 5%;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid green;
+      border-radius: 20px;
+    }
+    .title {
+      padding: 10px;
+    }
+    .snippet {
+      padding: 10px;
+    }
+    .content {
+      padding: 10px;
+    }
+    .read{
+       padding: 10px;
+    }
+  </style>
+  <body>
+    <%- include('./partials/nav.ejs')%>
+    <div><%- include('./sub-navbar.ejs') %></div>
+   
+    <br /><br />
+    <% if (data1.length > 0) { data1.forEach(blog => { if(blog.blog_type ===
+    'success'){ %>
+    <div class="card-container">
+      <div class="title">
+        <h1><%= blog.title %></h1>
+      </div>
+      <div class="snippet">
+        <h4><%= blog.snippet %></h4>
+      </div>
+      <div class="read">
+        <a href="/details/<%= blog._id %>" >Read More</a> 
+      </div>
+    </div>
+    <% } }) }%>
+  </body>   
+</html>

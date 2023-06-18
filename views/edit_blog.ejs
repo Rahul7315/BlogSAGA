@@ -1,0 +1,65 @@
+<html>
+  <%- include('./partials/head.ejs')%>
+  <style>
+    .card-container {
+      border: 2px solid black;
+      margin-left: 10%;
+      margin-top: 2%;
+      background-color: azure;
+      position: relative;
+      margin-right: 5%;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid green;
+      border-radius: 20px;
+      height: 25%;
+    }
+    .title {
+      padding: 10px;
+    }
+    .snippet {
+      padding: 10px;
+    }
+   
+    .delete{
+        border-radius: 10px;
+        padding: 5px;
+        margin-left: 2%;
+        background-color: red;
+    }
+  </style>
+  <body>
+    <%- include('./partials/nav.ejs')%>
+    <div><%- include('./sub-navbar.ejs') %></div>
+   
+    <br /><br />
+    <% if (data1.length > 0) { data1.forEach(blog => {       const borderColor = blog.blog_type === 'failure' ? 'red' : 'green';
+    %>
+    <div class="card-container style= border: <%= borderColor %>">
+      <div class="title">
+        <h1><%= blog.title %></h1>
+      </div>
+      <div class="snippet">
+        <h4><%= blog.snippet %></h4>
+      </div>
+      <div>
+        <a class="delete" data-doc="<%= blog._id %>">Delete</a>
+      </div>
+    </div>
+    <%  }) }%>
+  </body>   
+  <script>
+    const trashCan = document.querySelector('a.delete');
+    trashCan.addEventListener('click',(e)=>{
+        const endPoint = `/blog/${trashCan.dataset.doc}`;
+        console.log(endPoint);
+    fetch(endPoint,{
+        method: 'DELETE'
+    }).then((response)=>response.json())
+    .then((data) => window.location.href = data.redirect)
+    .catch((err)=>{
+        console.log(err);
+    })
+  })
+  </script>
+</html>

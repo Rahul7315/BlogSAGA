@@ -1,0 +1,55 @@
+<%- include('./partials/head.ejs')%>
+<style>
+    .container1 {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .form {
+        display: inline-block;
+        text-align: left;
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+    }
+
+    .form input[type="text"],
+    .form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+<%- include('./partials/nav.ejs')%>
+<div class="container1">
+<h1>Add Blog</h1>
+    <form class="form" action="/index" method="POST">
+        <h2>Title</h2>
+        <input type="text" name="title" placeholder="Enter the title">
+
+        <h2>Snippet</h2>
+        <input type="text" name="snippet" placeholder="Enter the snippet">
+
+        <h2>Content</h2>
+        <textarea name="content" rows="6" placeholder="Enter the content"></textarea>
+        <h2>Story Type</h2>
+        <select name="blog_type">
+            <option value="success">Success</option>
+            <option value="failure">Failure</option>
+        </select>
+        <button>Submit</button>
+    </form>
+</div>

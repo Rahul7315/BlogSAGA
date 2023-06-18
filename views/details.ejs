@@ -1,0 +1,34 @@
+<html>
+  <%- include('./partials/head.ejs')%>
+  <head>
+    <style>
+      .main-container{
+        background-color: rgb(97, 243, 121);
+        height: 40%;
+        width: 100%;
+        padding-top: 90px;
+        text-align: center;
+      }
+      .sub-container{
+       
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 5%;
+        padding: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs')   %>
+    <% const backgroundColor = data.blog_type === 'failure' ? 'rgb(246, 44, 44)' : ' rgb(97, 243, 121);';  %>
+    <div class="main-container" style="background-color: <%= backgroundColor %>;">
+      <h1>BLOG SAGA's <%= data.blog_type %> story</h1>
+      <h3><%= data.title %></h3>
+    </div>
+    <div class="sub-container">
+      <h1 style="color: black;"><%= data.snippet %></h1>
+      <p style="padding-top: 20px;"><%= data.content %></p>
+    </div>  
+    
+  </body>
+</html>
