@@ -120,5 +120,7 @@ app.get('/about',(req,resp)=>{
 app.get('/edit_blog',(req,resp)=>{
     resp.render('edit_blog');
 });
-
+app.get('/startup',(req,resp)=>{
+    resp.render('startup');
+});
 
