@@ -13,6 +13,7 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         background-color: #f5f5f5;
+        margin-bottom: 20px;
     }
 
     .form input[type="text"],
@@ -32,11 +33,20 @@
         border-radius: 4px;
         cursor: pointer;
     }
+
+    /* Add margin to all fields */
+    .form h2,
+    .form input[type="text"],
+    .form textarea,
+    .form select,
+    .form button {
+        margin-bottom: 10px;
+    }
 </style>
 <%- include('./partials/nav.ejs')%>
 <div class="container1">
-<h1>Add Blog</h1>
-    <form class="form" action="/index" method="POST">
+    <h1>Add Blog</h1>
+    <form class="form" action="/index" method="POST" enctype="multipart/form-data">
         <h2>Title</h2>
         <input type="text" name="title" placeholder="Enter the title">
 
@@ -45,11 +55,16 @@
 
         <h2>Content</h2>
         <textarea name="content" rows="6" placeholder="Enter the content"></textarea>
+
         <h2>Story Type</h2>
         <select name="blog_type">
             <option value="success">Success</option>
             <option value="failure">Failure</option>
         </select>
+
+        <input type="text" name="name"><br>
+        <input type="file" name="testImg" accept="image/*" required>
+        <br>
         <button>Submit</button>
     </form>
 </div>

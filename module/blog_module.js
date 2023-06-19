@@ -17,7 +17,15 @@ const blogSchema = new Schema({
   blog_type: {
     type: String,
     required: true
-  }
+  },
+  name: {
+    type: String,
+    required: true
+},
+testImg: {
+    data: Buffer,
+    contentType: String
+}
 }, { timestamps: true });
 
 const Blog = mongoose.model('Blog', blogSchema);
